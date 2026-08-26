@@ -1,0 +1,1061 @@
+/* ---------- BASIC PAGE ---------- */
+
+body {
+    margin: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    min-height: 100vh;
+
+    background: #f7f0e5;
+
+    font-family: Georgia, serif;
+    color: #52665a;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ---------- MAIN CONTAINER ---------- */
+
+#app {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+/* ---------- SCENE ---------- */
+
+.scene {
+    width: 92%;
+    max-width: 900px;
+
+    height: 100vh;
+    max-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding: 20px 10px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    overflow: hidden;
+
+    animation: scene-in 0.7s ease;
+}
+
+/* ---------- LITTLE BOW ---------- */
+
+.welcome-bow {
+    font-size: 90px;
+
+    animation: gentle-bob 3s ease-in-out infinite;
+}
+
+
+/* ---------- HEADING ---------- */
+
+.scene h1 {
+    margin: 0;
+
+    font-size: clamp(30px, 4vw, 46px);
+
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+/* ---------- SMALL MESSAGE ---------- */
+
+.scene p {
+    margin: 5px 0 10px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 20px;
+
+    color: #7b756e;
+}
+
+
+/* ---------- BUTTON ---------- */
+
+.scene button {
+    border: none;
+
+    background: #76998a;
+    color: white;
+
+    padding: 15px 42px;
+
+    border-radius: 30px;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease,
+                background 0.2s ease;
+    flex-shrink: 0;
+}
+
+
+/* Button movement */
+
+.scene button:hover {
+    transform: translateY(-3px);
+
+    background: #668a7b;
+}
+
+
+/* ---------- ANIMATIONS ---------- */
+
+
+/* Scene gently appears */
+
+@keyframes scene-in {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Small floating movement */
+
+@keyframes gentle-bob {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+/* ---------- SISTER CHARACTER ---------- */
+
+.sister-character {
+    width: 240px;
+    max-width: 45vw;
+    max-height: 58vh;
+
+    object-fit: contain;
+
+    animation: sister-enter 0.8s ease-out,
+               sister-bob 3s ease-in-out 0.8s infinite;
+}
+
+
+/* Sister enters gently */
+
+@keyframes sister-enter {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Small idle movement */
+
+@keyframes sister-bob {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+/* ---------- RAKHI SCENE ---------- */
+
+.rakhi-scene {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+}
+
+
+/* Area containing all three images */
+
+.characters {
+    position: relative;
+
+    width: 100%;
+    height: 520px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+/* Sister */
+
+.rakhi-scene .sister-character {
+    position: absolute;
+
+    width: 300px;
+
+    left: 8%;
+
+    bottom: 0;
+
+    animation: gentle-bob 3s ease-in-out infinite;
+}
+
+
+/* Brother */
+
+.rakhi-scene .brother-character {
+    position: absolute;
+
+    width: 300px;
+
+    right: 8%;
+
+    bottom: 0;
+
+    animation: gentle-bob 3s ease-in-out infinite;
+}
+
+
+/* Rakhi */
+
+.rakhi {
+    position: absolute;
+
+    width: 180px;
+
+    left: 50%;
+
+    top: 45%;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 1;
+
+    transition: none;
+}
+
+
+/* Rakhi moves toward brother */
+
+.rakhi-moving {
+    animation: rakhi-to-brother 1.8s ease-in-out forwards;
+}
+
+
+@keyframes rakhi-to-brother {
+
+    0% {
+        left: 42%;
+        top: 48%;
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+
+    70% {
+        left: 68%;
+        top: 43%;
+        transform: translate(-50%, -50%) rotate(8deg) scale(0.85);
+    }
+
+    100% {
+        left: 73%;
+        top: 42%;
+        transform: translate(-50%, -50%) rotate(0deg) scale(0.65);
+    }
+}
+/* ---------- RAKHI TYING SCENE ---------- */
+
+.rakhi-tying-image {
+    width: 650px;
+    max-width: 85vw;
+    max-height: 65vh;
+
+    height: auto;
+    object-fit: contain;
+
+    animation: rakhi-scene-pop 0.8s ease-out;
+}
+
+
+/* Small action text */
+
+.small-action {
+    font-size: 18px;
+    color: #76998a;
+}
+
+
+/* Rakhi tying image appears gently */
+
+@keyframes tying-appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Gift */
+
+.gift-box {
+    width: 190px;
+    max-width: 45vw;
+    max-height: 35vh;
+
+    object-fit: contain;
+
+    animation: gift-bob 2.5s ease-in-out infinite;
+}
+
+
+@keyframes gift-bob {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Penguin */
+
+.penguin {
+    font-size: 130px;
+
+    animation: penguin-pop 0.8s ease-out;
+}
+
+
+@keyframes penguin-pop {
+
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.7);
+    }
+
+    70% {
+        transform: translateY(-8px) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* ============================= */
+/* BROTHER CHARACTER */
+/* ============================= */
+
+.brother-character {
+    width: 220px;
+    max-width: 40vw;
+    max-height: 42vh;
+
+    height: auto;
+
+    object-fit: contain;
+
+    animation: brother-bob 3s ease-in-out infinite;
+}
+
+
+/* Gentle idle movement */
+
+@keyframes brother-bob {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================= */
+/* RAKHI INTRO */
+/* ============================= */
+
+.rakhi-intro {
+    gap: 15px;
+}
+
+
+/* ============================= */
+/* RAKHI-TYING SCENE */
+/* ============================= */
+
+.rakhi-tying-image {
+
+    width: 700px;
+    max-width: 90vw;
+    height: auto;
+
+    animation: rakhi-scene-pop 0.8s ease-out;
+}
+
+
+/* Small entrance */
+
+@keyframes rakhi-scene-pop {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Rakhi tied text */
+
+.small-action {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+
+    color: #7b756e;
+}
+
+
+/* ============================= */
+/* GIFT SCENE */
+/* ============================= */
+
+.gift-scene {
+    gap: 12px;
+}
+
+
+/* ============================= */
+/* GIFT BOX */
+/* ============================= */
+
+.gift-box {
+    width: 170px;
+    max-width: 35vw;
+    max-height: 24vh;
+
+    height: auto;
+
+    object-fit: contain;
+
+    animation: gift-bob 2.5s ease-in-out infinite;
+}
+
+
+@keyframes gift-bob {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-6px) rotate(1deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+
+/* ============================= */
+/* GIFT OPENING */
+/* ============================= */
+
+.gift-opening {
+
+    animation: gift-open 0.7s ease-out;
+}
+
+
+@keyframes gift-open {
+
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* ============================= */
+/* PENGUIN */
+/* ============================= */
+
+.penguin {
+
+    font-size: 130px;
+
+    animation: penguin-pop 0.8s ease-out;
+}
+
+
+/* Your penguin animation */
+
+@keyframes penguin-pop {
+
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.7);
+    }
+
+    70% {
+        transform: translateY(-8px) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+/* ---------- GIFT BEING GIVEN ---------- */
+
+.gift-give-scene {
+    position: relative;
+}
+
+
+.gift-being-given {
+    width: 180px;
+
+    animation: gift-float 2.5s ease-in-out infinite;
+}
+
+
+@keyframes gift-float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Gift moves toward the viewer */
+
+.gift-move {
+    animation: gift-to-you 1.2s ease-in-out forwards;
+}
+
+
+@keyframes gift-to-you {
+
+    0% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-120px) scale(1.15);
+        opacity: 0;
+    }
+}
+/* ============================= */
+/* RAKHI CLOSE-UP */
+/* ============================= */
+
+.rakhi-focus-scene {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: #f7f0e5;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    animation: focus-scene-in 0.5s ease-out;
+}
+
+
+/* The Rakhi itself */
+
+.rakhi-focus {
+
+    position: relative;
+
+    width: 260px;
+
+    height: 260px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    animation: rakhi-focus-zoom 2.2s ease-in-out forwards;
+}
+
+
+.rakhi-focus img {
+
+    width: 230px;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* ============================= */
+/* RAKHI ZOOM */
+/* ============================= */
+
+@keyframes rakhi-focus-zoom {
+
+    0% {
+
+        opacity: 0;
+
+        transform: scale(0.65);
+
+    }
+
+    20% {
+
+        opacity: 1;
+
+        transform: scale(0.8);
+
+    }
+
+    60% {
+
+        transform: scale(1.15);
+
+    }
+
+    78% {
+
+        transform: scale(1.08);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+}
+
+
+/* ============================= */
+/* SPARKLES */
+/* ============================= */
+
+.sparkle {
+
+    position: absolute;
+
+    font-size: 22px;
+
+    opacity: 0;
+
+    animation: sparkle-pop 1s ease-out forwards;
+}
+
+
+.sparkle-one {
+
+    top: 45px;
+
+    right: 15px;
+
+    animation-delay: 0.7s;
+}
+
+
+.sparkle-two {
+
+    bottom: 45px;
+
+    left: 15px;
+
+    animation-delay: 1s;
+}
+
+
+@keyframes sparkle-pop {
+
+    0% {
+
+        opacity: 0;
+
+        transform: scale(0.3);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform: scale(1.2);
+
+    }
+
+    100% {
+
+        opacity: 0.2;
+
+        transform: scale(1);
+
+    }
+}
+
+
+/* Scene entrance */
+
+@keyframes focus-scene-in {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+}
+.brother-hand-character {
+    width: 240px;
+    max-width: 45vw;
+    max-height: 58vh;
+
+    object-fit: contain;
+
+    animation: brother-bob 3s ease-in-out infinite;
+}
+/* Final scene sizing fix */
+
+.scene {
+    height: 100vh;
+    max-height: 100vh;
+    box-sizing: border-box;
+
+    padding: 20px 10px;
+
+    gap: 8px;
+
+    overflow: hidden;
+}
+
+.scene .brother-character {
+    width: 220px;
+    max-width: 40vw;
+    max-height: 42vh;
+    height: auto;
+}
+
+.scene .gift-box {
+    width: 170px;
+    max-width: 35vw;
+    max-height: 24vh;
+    height: auto;
+}
+
+.scene button {
+    flex-shrink: 0;
+}
+
+/* Real penguin image */
+
+.penguin-image {
+    width: 280px;
+    max-width: 65vw;
+    max-height: 55vh;
+    height: auto;
+
+    object-fit: contain;
+
+    animation: penguin-pop 0.8s ease-out;
+}
+/* FINAL HAPPY RAKSHA BANDHAN SCENE */
+
+.final-scene {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.girl-penguin-image {
+    width: 520px;
+    max-width: 85vw;
+    max-height: 72vh;
+
+    height: auto;
+    object-fit: contain;
+
+    animation: final-pop 0.9s ease-out;
+}
+
+.final-message {
+    margin: 0;
+
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 500;
+
+    color: #52665a;
+
+    animation: final-message-in 1s ease-out;
+}
+
+.final-subtitle {
+    margin: 0;
+    font-size: 20px;
+}
+
+@keyframes final-pop {
+
+    0% {
+        opacity: 0;
+        transform: translateY(25px) scale(0.94);
+    }
+
+    70% {
+        transform: translateY(-5px) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes final-message-in {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Penguin gift reveal */
+
+.gift-penguin {
+    width: 360px;
+    max-width: 70vw;
+    max-height: 58vh;
+    height: auto;
+    object-fit: contain;
+
+    animation: penguin-gift-pop 0.9s ease-out;
+}
+
+.penguin-gift-scene h1 {
+    margin: 0;
+}
+
+.penguin-gift-scene p {
+    margin: 0;
+}
+
+@keyframes penguin-gift-pop {
+
+    0% {
+        opacity: 0;
+        transform: translateY(35px) scale(0.8);
+    }
+
+    70% {
+        transform: translateY(-6px) scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+.final-scene {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+    overflow: hidden;
+}
+
+.girl-penguin-image {
+    width: 520px;
+    max-width: 85vw;
+    max-height: 75vh;
+    height: auto;
+    object-fit: contain;
+
+    animation: final-pop 0.9s ease-out;
+}
+
+.final-scene {
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+    overflow: hidden;
+}
+
+.girl-penguin-image {
+    width: 520px;
+    max-width: 85vw;
+    max-height: 75vh;
+    height: auto;
+    object-fit: contain;
+
+    animation: final-pop 0.9s ease-out;
+}
+
+.final-scene h1 {
+    margin: 0;
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 500;
+    color: #52665a;
+
+    animation: final-message-in 1s ease-out;
+}
+
+@keyframes final-pop {
+
+    0% {
+        opacity: 0;
+        transform: translateY(25px) scale(0.94);
+    }
+
+    70% {
+        transform: translateY(-5px) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes final-message-in {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
